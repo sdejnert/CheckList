@@ -46,7 +46,7 @@ namespace CheckList
             }
             else
             {
-                MessageBox.Show("Stworzono nowego urzytkownika");
+                MessageBox.Show("Stworzono nowego użytkownika");
             }
         }
 
@@ -59,7 +59,6 @@ namespace CheckList
             {
                 return false;
             }
-            
         }
     }
 }
