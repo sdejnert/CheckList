@@ -20,9 +20,38 @@ namespace CheckList
     /// </summary>
     public partial class MainWindow : Window
     {
+        String errorForLogin = "Zły login lub hasło";
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void GoToCreateNewUser_Click(object sender, RoutedEventArgs e)
+        {
+            NewUser newUser = new NewUser();
+            newUser.Show();
+            this.Close();
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            ErrorLoginTextBlock.Text = "";
+            if (CheckIfUserExists()) {
+                MessageBox.Show("Zalogowno");
+            }
+            else
+            {
+                ErrorLoginTextBlock.Text = errorForLogin;
+            }
+        }
+
+        public bool CheckIfUserExists()
+        {
+            if(UserLoginTextBox.Text == "A" && UserPasswordTextBox.Text == "A")
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
