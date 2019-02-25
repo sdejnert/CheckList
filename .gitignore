@@ -1,3 +1,5 @@
 
 *.lock
 *.ide
+*.ide-shm
+CheckList/.vs/CheckList/v16/Server/sqlite3/storage.ide-wal
