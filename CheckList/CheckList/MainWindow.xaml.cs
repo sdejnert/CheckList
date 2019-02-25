@@ -37,7 +37,8 @@ namespace CheckList
         {
             ErrorLoginTextBlock.Text = "";
             if (CheckIfUserExists()) {
-                MessageBox.Show("Zalogowno");
+                DataBaseConnection dataBaseConnection = new DataBaseConnection();
+                MessageBox.Show("Zalogowno użytkownika o id " + dataBaseConnection.ConnectWithDataBasePublic(UserLoginTextBox.Text));
             }
             else
             {

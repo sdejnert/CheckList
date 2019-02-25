@@ -30,5 +30,36 @@ namespace CheckList
             mainWindow.Show();
             this.Close();
         }
+
+        private void CreateNewUserButton_Click(object sender, RoutedEventArgs e)
+        {
+            CreateNewUser();
+        }
+
+        private void CreateNewUser() {
+            string password1 = NewUserPassword1TextBox.Text;
+            string password2 = NewUserPassword2TextBox.Text;
+    
+            if (!CheckIfPasswordAreSame(password1, password2))
+            {
+                MessageBox.Show("Hasła są różne");
+            }
+            else
+            {
+                MessageBox.Show("Stworzono nowego urzytkownika");
+            }
+        }
+
+        private bool CheckIfPasswordAreSame(string pass1, string pass2) {
+            if(pass1 == pass2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            
+        }
     }
 }
