@@ -21,7 +21,8 @@ namespace CheckList
     {
         User user = new User();
         DataBaseConnection baseConnection = new DataBaseConnection();
-        MainWindow mainWindow = new MainWindow();
+        CheckingService checkingService = new CheckingService();
+        
 
         public NewUser()
         {
@@ -30,6 +31,7 @@ namespace CheckList
 
         private void GoToMainWindowButton_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
         }
@@ -41,16 +43,17 @@ namespace CheckList
 
         private void CreateNewUser() {
             user.userName = NewUserTextBox.Text;
-            user.password = NewUserPassword1TextBox.Text;
-            string password2 = NewUserPassword2TextBox.Text;
-    
-            if (!CheckIfPasswordAreSame(user.password, password2))
+            user.password = NewUserPasswordBox1.Password.ToString();
+            string password2 = NewUserPasswordBox2.Password.ToString();
+            MainWindow mainWindow = new MainWindow();
+
+            if (!checkingService.CheckIfPasswordAreSame(user.password, password2))
             {
                 MessageBox.Show("Hasła są różne");
             }
             else
             {
-                if (!baseConnection.CheckIfUserExistInDataBase(user.userName))
+                if (!checkingService.CheckIfUserExists(user.userName))
                 {
                     MessageBox.Show("Użytkownik o takim loginie już istnieje");
                 }
@@ -64,18 +67,5 @@ namespace CheckList
                 }
             }
         }
-
-        private bool CheckIfPasswordAreSame(string pass1, string pass2) {
-            if(pass1 == pass2)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-
     }
 }

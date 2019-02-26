@@ -21,6 +21,11 @@ namespace CheckList
     public partial class MainWindow : Window
     {
         String errorForLogin = "Zły login lub hasło";
+        DataBaseConnection dataBaseConnection = new DataBaseConnection();
+        NewUser newUser = new NewUser();
+        CheckingService checkingService = new CheckingService();
+        CheckBoxMainWindow checkBoxMainWindow = new CheckBoxMainWindow();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -28,31 +33,49 @@ namespace CheckList
 
         private void GoToCreateNewUser_Click(object sender, RoutedEventArgs e)
         {
-            NewUser newUser = new NewUser();
             newUser.Show();
             this.Close();
         }
 
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
         {
-            ErrorLoginTextBlock.Text = "";
-            if (CheckIfUserExists()) {
-                DataBaseConnection dataBaseConnection = new DataBaseConnection();
-                MessageBox.Show("Zalogowno użytkownika o id " + dataBaseConnection.ConnectWithDataBasePublic(UserLoginTextBox.Text));
-            }
-            else
+            if(e.Key == Key.Return)
             {
-                ErrorLoginTextBlock.Text = errorForLogin;
+                LoginIn();
             }
         }
 
-        public bool CheckIfUserExists()
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            if(UserLoginTextBox.Text == "A" && UserPasswordTextBox.Text == "A")
+            LoginIn();
+        }
+
+        private void LoginIn()
+        {
+            ErrorLoginTextBlock.Text = "";
+            if (checkingService.CheckIfUserExists(UserLoginTextBox.Text))
             {
-                return true;
+                ErrorLoginTextBlock.Text = errorForLogin;
             }
-            return false;
+            else
+            {
+                if(UserLoginTextBox.Text == null && UserLoginPasswordBox.Password.ToString() == null)
+                {
+                    ErrorLoginTextBlock.Text = errorForLogin;
+                }
+                else
+                {
+                    if(!checkingService.CheckIfPasswordMatch(UserLoginPasswordBox.Password.ToString(), UserLoginTextBox.Text))
+                    {
+                        ErrorLoginTextBlock.Text = errorForLogin;
+                    }
+                    else
+                    {
+                        checkBoxMainWindow.Show();
+                        this.Close();
+                    }
+                }
+            }
         }
     }
 }

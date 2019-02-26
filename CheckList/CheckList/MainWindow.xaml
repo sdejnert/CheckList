@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="Check List" Height="450" Width="800">
     <Grid>
-        <TextBox x:Name="UserLoginTextBox" HorizontalAlignment="Left" Height="23" Margin="299,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
-        <TextBox x:Name="UserPasswordTextBox" HorizontalAlignment="Left" Height="23" Margin="299,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168"/>
+        <TextBox x:Name="UserLoginTextBox" HorizontalAlignment="Left" Height="23" Margin="299,82,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="168" KeyDown="OnKeyDownHandler"/>
+        <PasswordBox x:Name="UserLoginPasswordBox" HorizontalAlignment="Left" Margin="299,124,0,0" VerticalAlignment="Top" Width="168" Height="23" KeyDown="OnKeyDownHandler"/>
         <Button x:Name="LoginButton" Content="Zaloguj" HorizontalAlignment="Left" Margin="342,176,0,0" VerticalAlignment="Top" Width="75" Click="LoginButton_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="265,89,0,0" TextWrapping="Wrap" Text="Login" VerticalAlignment="Top" RenderTransformOrigin="0.497,0.491"/>
         <TextBlock HorizontalAlignment="Left" Margin="264,131,0,0" TextWrapping="Wrap" Text="Hasło" VerticalAlignment="Top"/>

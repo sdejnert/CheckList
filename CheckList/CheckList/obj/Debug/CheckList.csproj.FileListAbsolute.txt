@@ -25,3 +25,5 @@ C:\Users\sebas\source\repos\CheckList\CheckList\CheckList\obj\Debug\CheckList.cs
 C:\Users\sebas\source\repos\CheckList\CheckList\CheckList\obj\Debug\CheckList.csproj.CopyComplete
 C:\Users\sebas\source\repos\CheckList\CheckList\CheckList\obj\Debug\CheckList.exe
 C:\Users\sebas\source\repos\CheckList\CheckList\CheckList\obj\Debug\CheckList.pdb
+C:\Users\sebas\source\repos\CheckList\CheckList\CheckList\obj\Debug\CheckBoxMainWindow.g.cs
+C:\Users\sebas\source\repos\CheckList\CheckList\CheckList\obj\Debug\CheckBoxMainWindow.baml

@@ -10,6 +10,6 @@ namespace CheckList
     {
         public string userName;
         public string password;
-        public string userId;
+        public int userId;
     }
 }

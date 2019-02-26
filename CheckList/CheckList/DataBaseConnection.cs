@@ -81,5 +81,58 @@ namespace CheckList
                 connect.Close();
             }
         }
+
+        public User FindUserFromDataBaseByUser(User user)
+        {
+            User userFromDataBase = new User();
+            string userIdString = null;
+            using (SQLiteConnection connect = new SQLiteConnection(@"Data source = checkdb.s3db"))
+            {
+                connect.Open();
+                using (SQLiteCommand fmd = connect.CreateCommand())
+                {
+                    fmd.CommandText = @"SELECT * FROM users U WHERE U.NAZWA = '" + user.userName + "'";
+                    fmd.CommandType = CommandType.Text;
+                    SQLiteDataReader r = fmd.ExecuteReader();
+                    while (r.Read())
+                    {
+                        userIdString = r["usersid"].ToString();
+                        userFromDataBase.userName = r["nazwa"].ToString();
+                        userFromDataBase.password = r["password"].ToString();
+                    }
+                }
+                connect.Close();
+            }
+            userFromDataBase.userId = int.Parse(userIdString);
+            return userFromDataBase;
+        }
+        public User FindUserFromDataBaseByUserName(string userName)
+        {
+            User userFromDataBase = new User();
+            String userIdString = null;
+            using (SQLiteConnection connect = new SQLiteConnection(@"Data source = checkdb.s3db"))
+            {
+                connect.Open();
+                using (SQLiteCommand fmd = connect.CreateCommand())
+                {
+                    fmd.CommandText = @"SELECT * FROM users U WHERE U.NAZWA = '" + userName + "'";
+                    fmd.CommandType = CommandType.Text;
+                    SQLiteDataReader r = fmd.ExecuteReader();
+                    while (r.Read())
+                    {
+                        userIdString = r["usersid"].ToString();
+                        userFromDataBase.userName = r["nazwa"].ToString();
+                        userFromDataBase.password = r["password"].ToString();
+                    }
+                }
+                connect.Close();
+            }
+            if(userIdString != null)
+            {
+                userFromDataBase.userId = int.Parse(userIdString);
+            }
+            
+            return userFromDataBase;
+        }
     }
 }
