@@ -134,5 +134,10 @@ namespace CheckList
             
             return userFromDataBase;
         }
+
+        public void DownloadDataFromDataBase()
+        {
+
+        }
     }
 }
