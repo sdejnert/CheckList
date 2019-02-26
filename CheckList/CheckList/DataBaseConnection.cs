@@ -135,9 +135,25 @@ namespace CheckList
             return userFromDataBase;
         }
 
-        public void DownloadDataFromDataBase()
+        public void DownloadDataFromDataBase(User user)
         {
 
+            using (SQLiteConnection connect = new SQLiteConnection(@"Data source = checkdb.s3db"))
+            {
+                connect.Open();
+                using (SQLiteCommand fmd = connect.CreateCommand())
+                {
+                    fmd.CommandText = @"SELECT * FROM tasks T WHERE T.USERSID = '" + user.userId + "'";
+                    fmd.CommandType = CommandType.Text;
+                    SQLiteDataReader r = fmd.ExecuteReader();
+                    while (r.Read())
+                    {
+                        
+                
+                    }
+                }
+                connect.Close();
+            }
         }
     }
 }
