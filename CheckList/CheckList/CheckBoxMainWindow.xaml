@@ -8,11 +8,8 @@
         Title="CheckBoxMainWindow" Height="450" Width="800">
     <Grid Loaded="Grid_Loaded">
         <Button x:Name="SignoutButton" Content="Wyloguj" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="SignoutButton_Click"/>
-        <DataGrid x:Name ="CheckBoxMainWindowDataGrid"  HorizontalAlignment="Left" Height="359" Margin="10,35,0,0" VerticalAlignment="Top" Width="761" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="4">
-            <DataGridTextColumn Header="ID" Binding="{Binding Taskid}"/>
-            <DataGridTextColumn Header="Nazwa zadania" Binding="{Binding name}"/>
-            <DataGridTextColumn Header="Opis" Binding="{Binding opis}"/>
-        </DataGrid>
+        <DataGrid x:Name="CheckListDataGrid" AutoGenerateColumns ="true" HorizontalAlignment="Left" Height="374" Margin="10,35,0,0" VerticalAlignment="Top" Width="356"/>
+
 
     </Grid>
 </Window>

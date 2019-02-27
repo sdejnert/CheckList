@@ -145,12 +145,16 @@ namespace CheckList
                 {
                     fmd.CommandText = @"SELECT * FROM tasks T WHERE T.USERSID = '" + user.userId + "'";
                     fmd.CommandType = CommandType.Text;
-                    SQLiteDataReader r = fmd.ExecuteReader();
-                    while (r.Read())
-                    {
-                        
-                
-                    }
+                    fmd.ExecuteNonQuery();
+
+                    SQLiteDataAdapter dataAdapter = new SQLiteDataAdapter(fmd);
+                    DataTable dataTable = new DataTable("tasks");
+
+                    dataAdapter.Fill(dataTable);
+                    CheckBoxMainWindow checkBoxMainWindow = new CheckBoxMainWindow();
+                    checkBoxMainWindow.CheckListDataGrid.ItemsSource = dataTable.DefaultView;
+                    dataAdapter.Update(dataTable);
+
                 }
                 connect.Close();
             }

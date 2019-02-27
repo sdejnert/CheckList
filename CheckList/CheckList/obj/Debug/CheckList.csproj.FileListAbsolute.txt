@@ -27,3 +27,12 @@ C:\Users\sebas\source\repos\CheckList\CheckList\CheckList\obj\Debug\CheckList.ex
 C:\Users\sebas\source\repos\CheckList\CheckList\CheckList\obj\Debug\CheckList.pdb
 C:\Users\sebas\source\repos\CheckList\CheckList\CheckList\obj\Debug\CheckBoxMainWindow.g.cs
 C:\Users\sebas\source\repos\CheckList\CheckList\CheckList\obj\Debug\CheckBoxMainWindow.baml
+C:\Users\sebax\source\repos\Check List\CheckList\CheckList\CheckList\obj\Debug\CheckList.csprojAssemblyReference.cache
+C:\Users\sebax\source\repos\Check List\CheckList\CheckList\CheckList\obj\Debug\CheckBoxMainWindow.g.cs
+C:\Users\sebax\source\repos\Check List\CheckList\CheckList\CheckList\obj\Debug\MainWindow.g.cs
+C:\Users\sebax\source\repos\Check List\CheckList\CheckList\CheckList\obj\Debug\NewUser.g.cs
+C:\Users\sebax\source\repos\Check List\CheckList\CheckList\CheckList\obj\Debug\App.g.cs
+C:\Users\sebax\source\repos\Check List\CheckList\CheckList\CheckList\obj\Debug\CheckList_MarkupCompile.cache
+C:\Users\sebax\source\repos\Check List\CheckList\CheckList\CheckList\obj\Debug\CheckList_MarkupCompile.lref
+C:\Users\sebax\source\repos\Check List\CheckList\CheckList\CheckList\obj\Debug\CheckList.exe
+C:\Users\sebax\source\repos\Check List\CheckList\CheckList\CheckList\obj\Debug\CheckList.pdb
