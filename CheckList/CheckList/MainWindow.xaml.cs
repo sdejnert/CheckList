@@ -71,6 +71,7 @@ namespace CheckList
                     }
                     else
                     {
+                        checkBoxMainWindow.user = dataBaseConnection.FindUserFromDataBaseByUserName(UserLoginTextBox.Text);
                         checkBoxMainWindow.Show();
                         this.Close();
                     }

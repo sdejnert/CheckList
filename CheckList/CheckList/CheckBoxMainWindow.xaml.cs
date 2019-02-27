@@ -20,12 +20,10 @@ namespace CheckList
     /// </summary>
     public partial class CheckBoxMainWindow : Window
     {
-        DataBaseConnection dataBaseConnection = new DataBaseConnection();
+        public User user;
         public CheckBoxMainWindow()
         {
             InitializeComponent();
-
-            dataBaseConnection.DownloadDataFromDataBase();
         }
 
         private void SignoutButton_Click(object sender, RoutedEventArgs e)
@@ -33,6 +31,13 @@ namespace CheckList
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
+        }
+
+
+        private void Grid_Loaded(object sender, RoutedEventArgs re)
+        {
+            DataBaseConnection dataBaseConnection = new DataBaseConnection();
+            dataBaseConnection.DownloadDataFromDataBase(user);
         }
 
     }

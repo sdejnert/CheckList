@@ -143,7 +143,7 @@ namespace CheckList
                 connect.Open();
                 using (SQLiteCommand fmd = connect.CreateCommand())
                 {
-                    fmd.CommandText = @"SELECT * FROM tasks T WHERE T.USERSID = '" + user.userId + "'";
+                    fmd.CommandText = @"SELECT NAME, OPIS, PRIORYTET FROM tasks T WHERE T.USERSID = '" + user.userId + "'";
                     fmd.CommandType = CommandType.Text;
                     fmd.ExecuteNonQuery();
 
